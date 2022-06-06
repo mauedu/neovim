@@ -20,6 +20,22 @@ return require('packer').startup(function(use)
     }
     use 'folke/tokyonight.nvim'
 
+    use {
+        'goolord/alpha-nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' },
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.startify'.config)
+            -- Adding new entried to home screen.
+            -- Don't forger to PackerSync after updating entried below
+            local startify = require("alpha.themes.startify")
+            startify.section.bottom_buttons.val = {
+                startify.button("v", "neovim config", ":e ~/.config/nvim/init.lua<cr>"),
+            }
+        end
+    }
+
+    use 'nvim-treesitter/nvim-treesitter'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
