@@ -4,6 +4,8 @@
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+vim.g.tokyonight_dark_float = true
+vim.g.tokyonight_colors = {bg_float= "#303030"}
 -- Load the colorscheme
 vim.cmd[[colorscheme tokyonight]]
 
@@ -15,7 +17,7 @@ t_configs.setup {
     -- ensure_installed = "maintained", -- Only use parsers that are maintained
 
     highlight = { -- enable highlighting
-        enable = true, 
+        enable = true,
     },
     indent = {
         enable = true, -- default is disabled
