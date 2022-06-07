@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
-        requires = { 
+        requires = {
             "nvim-lua/plenary.nvim",
             "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
@@ -35,6 +35,13 @@ return require('packer').startup(function(use)
     }
 
     use 'nvim-treesitter/nvim-treesitter'
+
+    use 'neovim/nvim-lspconfig'
+
+    use {
+        'williamboman/nvim-lsp-installer',
+        requires = 'neovim/nvim-lspconfig',
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

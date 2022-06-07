@@ -9,13 +9,16 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +1 init.lua
-badd +11 ~/.config/nvim/lua/mau/settings_plugins.lua
-badd +1 ~/.config/nvim/lua/mau/packer_setup.lua
+badd +4 init.lua
+badd +0 lua/mau/packer_setup.lua
+badd +0 lua/mau/keys_basic.lua
+badd +0 lua/mau/keys_plugins.lua
+badd +0 lua/mau/lsp_setup.lua
+badd +27 lua/mau/settings_plugins.lua
 argglobal
 %argdel
 $argadd init.lua
-edit ~/.config/nvim/lua/mau/packer_setup.lua
+edit lua/mau/lsp_setup.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -32,10 +35,43 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 94 + 94) / 189)
-exe 'vert 2resize ' . ((&columns * 94 + 94) / 189)
+exe 'vert 1resize ' . ((&columns * 118 + 118) / 237)
+exe 'vert 2resize ' . ((&columns * 118 + 118) / 237)
 argglobal
-balt ~/.config/nvim/lua/mau/settings_plugins.lua
+balt lua/mau/keys_plugins.lua
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+48
+normal! zo
+55
+normal! zo
+57
+normal! zo
+58
+normal! zo
+59
+normal! zo
+63
+normal! zo
+let s:l = 62 - ((47 * winheight(0) + 26) / 53)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 62
+normal! 014|
+wincmd w
+argglobal
+if bufexists(fnamemodify("lua/mau/packer_setup.lua", ":p")) | buffer lua/mau/packer_setup.lua | else | edit lua/mau/packer_setup.lua | endif
+if &buftype ==# 'terminal'
+  silent file lua/mau/packer_setup.lua
+endif
+balt lua/mau/keys_plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -46,43 +82,15 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 39 - ((38 * winheight(0) + 24) / 48)
+let s:l = 28 - ((25 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 39
+keepjumps 28
 normal! 0
 wincmd w
-argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/mau/settings_plugins.lua", ":p")) | buffer ~/.config/nvim/lua/mau/settings_plugins.lua | else | edit ~/.config/nvim/lua/mau/settings_plugins.lua | endif
-if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/mau/settings_plugins.lua
-endif
-balt ~/.config/nvim/lua/mau/packer_setup.lua
-setlocal fdm=expr
-setlocal fde=nvim_treesitter#foldexpr()
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-12
-normal! zo
-17
-normal! zo
-20
-normal! zo
-let s:l = 26 - ((25 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 26
-normal! 0
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 94 + 94) / 189)
-exe 'vert 2resize ' . ((&columns * 94 + 94) / 189)
+exe 'vert 1resize ' . ((&columns * 118 + 118) / 237)
+exe 'vert 2resize ' . ((&columns * 118 + 118) / 237)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

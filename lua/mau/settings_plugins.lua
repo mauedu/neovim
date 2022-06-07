@@ -8,19 +8,20 @@ vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.cmd[[colorscheme tokyonight]]
 
 -- Treesitter
-local configs = require'nvim-treesitter.configs'
-configs.setup {
+local t_configs = require'nvim-treesitter.configs'
+t_configs.setup {
     ensure_installed = {"lua", "python", "bash"}, -- Starting minimalistic
     -- Check installaed languages with :TSInstallInfo
     -- ensure_installed = "maintained", -- Only use parsers that are maintained
-    
+
     highlight = { -- enable highlighting
         enable = true, 
     },
     indent = {
-        enable = true, -- default is disabled 
+        enable = true, -- default is disabled
     }
 }
+
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
