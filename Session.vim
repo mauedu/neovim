@@ -9,20 +9,19 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +1 init.lua
-badd +0 lua/mau/packer_setup.lua
-badd +4 lua/mau/keys_basic.lua
-badd +4 lua/mau/keys_plugins.lua
-badd +1 lua/mau/lsp_setup.lua
-badd +21 lua/mau/settings_plugins.lua
-badd +0 neo-tree\ filesystem\ \[1]
+badd +9 init.lua
+badd +1 ~/.config/nvim/lua/mau/packer_setup.lua
+badd +0 ~/.config/nvim/lua/mau/keys_plugins.lua
+badd +0 ~/.config/nvim/lua/mau/lsp_setup.lua
+badd +17 ~/.config/nvim/lua/mau/settings_plugins.lua
 argglobal
 %argdel
 $argadd init.lua
 set stal=2
 tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit lua/mau/lsp_setup.lua
+edit init.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -39,10 +38,44 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 237)
-exe 'vert 2resize ' . ((&columns * 118 + 118) / 237)
+exe 'vert 1resize ' . ((&columns * 40 + 94) / 189)
+exe 'vert 2resize ' . ((&columns * 148 + 94) / 189)
 argglobal
-balt lua/mau/settings_plugins.lua
+enew
+file neo-tree\ filesystem\ \[1]
+balt init.lua
+setlocal fdm=manual
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+wincmd w
+argglobal
+balt ~/.config/nvim/lua/mau/packer_setup.lua
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 13 - ((12 * winheight(0) + 23) / 47)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 13
+normal! 0
+wincmd w
+exe 'vert 1resize ' . ((&columns * 40 + 94) / 189)
+exe 'vert 2resize ' . ((&columns * 148 + 94) / 189)
+tabnext
+edit ~/.config/nvim/lua/mau/settings_plugins.lua
+argglobal
+balt init.lua
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
@@ -51,57 +84,31 @@ setlocal fdl=4
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 52 - ((51 * winheight(0) + 26) / 52)
+let s:l = 17 - ((1 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 52
-normal! 03|
-wincmd w
-argglobal
-if bufexists(fnamemodify("lua/mau/packer_setup.lua", ":p")) | buffer lua/mau/packer_setup.lua | else | edit lua/mau/packer_setup.lua | endif
-if &buftype ==# 'terminal'
-  silent file lua/mau/packer_setup.lua
-endif
-balt lua/mau/keys_plugins.lua
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 21
+keepjumps 17
 normal! 0
-wincmd w
-exe 'vert 1resize ' . ((&columns * 118 + 118) / 237)
-exe 'vert 2resize ' . ((&columns * 118 + 118) / 237)
 tabnext
-edit lua/mau/keys_basic.lua
+edit ~/.config/nvim/lua/mau/packer_setup.lua
 argglobal
-balt lua/mau/packer_setup.lua
+balt init.lua
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=0
+setlocal fdl=4
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 36 - ((35 * winheight(0) + 26) / 52)
+let s:l = 1 - ((0 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 36
+keepjumps 1
 normal! 0
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -115,6 +122,7 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

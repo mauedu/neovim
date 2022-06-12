@@ -9,6 +9,8 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Leader key defined in settings_basic.lua
+
 -- Syntax: vim.api.nvim_set_keymap({mode}, {keymap}, {mapped to}, {options})
 local keymap = vim.api.nvim_set_keymap
 
@@ -49,4 +51,18 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
+
+-- Toogle file navigation (overwritten for nvim-tree in keys_plugins.lua)
+keymap('n', '<Leader>e', ':Lexplore<CR>', opts)
+
+-- Shift tabs sideways
+keymap('n', '<Leader><C-PageUp>', ':tabm-<CR>', opts)
+keymap('n', '<Leader><C-PageDown>', ':tabm+<CR>', opts)
+
+-- Show and select buffer
+keymap('n', '<Leader>b', ':ls<CR>:buffer ', opts)
+
+-- Saving & reloading sessions on working directory
+keymap('n', '<Leader>ss', ':mksession!<CR>', opts)
+keymap('n', '<Leader>sr', ':so Session.vim<CR>', opts)
 
