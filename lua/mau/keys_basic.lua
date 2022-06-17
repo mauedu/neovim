@@ -42,11 +42,17 @@ keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Resize with arrows
+keymap("n", "<C-Up>", ":resize +2<CR>", opts)
+keymap("n", "<C-Down>", ":resize -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
 -- When pasting over a word, don't put replaced word in clipboard
 --keymap("v", "p", '"_dP', opts)
 
 -- Terminal --
--- Better terminal navigation
+-- Navigate in and out of terminal without entering normal mode.
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)

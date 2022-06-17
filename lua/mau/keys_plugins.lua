@@ -12,7 +12,7 @@ keymap('n', '<leader>ts', ':ToggleTerm size=80 direction=vertical<CR>', opts)
 keymap('n', '<leader>th', ':ToggleTerm size=20 direction=horizontal<CR>', opts)
 keymap('n', '<leader>tf', ':ToggleTerm direction=float<CR>', opts)
 keymap('t', '<leader>t', '<C-\\><C-n>:ToggleTerm<CR>', opts)
-keymap('t', '<leader><Esc>', '<C-\\><C-n>', opts)
+keymap('t', '<Esc>', '<C-\\><C-n>', opts)
 
 -- Conigure lazygit to open in float terminal on keybinding
 local Terminal = require('toggleterm.terminal').Terminal
