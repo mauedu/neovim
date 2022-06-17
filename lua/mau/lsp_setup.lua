@@ -19,7 +19,6 @@ local default_servers = {
 }
 
 local on_attach = function(client, bufnr)
-    print(client.name)
     -- Disabled since using Autocompletion with nvim-cmp
     -- Enable completion triggered by <c-x><c-o>
     --vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
