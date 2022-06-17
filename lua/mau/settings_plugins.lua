@@ -146,3 +146,13 @@ cmp.setup {
         --completion = cmp.config.window.bordered(),
     }
 }
+
+require("neo-tree").setup({
+    buffers = {
+        follow_current_file = true, -- This will find and focus the file in the active buffer every
+    }
+})
+
+
+require('lualine').setup()
+
