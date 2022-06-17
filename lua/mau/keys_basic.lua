@@ -47,10 +47,10 @@ keymap("v", ">", ">gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
+-- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
+-- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
+-- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
+-- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 
 -- Toogle file navigation (overwritten for nvim-tree in keys_plugins.lua)
 keymap('n', '<Leader>e', ':Lexplore<CR>', opts)
@@ -65,4 +65,7 @@ keymap('n', '<Leader>b', ':ls<CR>:buffer ', opts)
 -- Saving & reloading sessions on working directory
 keymap('n', '<Leader>ss', ':mksession!<CR>', opts)
 keymap('n', '<Leader>sr', ':so Session.vim<CR>', opts)
+
+-- Paste from clipboard using new lines
+keymap('n', '<Leader><C-v>', ':pu+<CR>', opts)
 
