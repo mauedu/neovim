@@ -1,0 +1,8 @@
+
+/* Ignore sessions */
+Session.vim
+
+/* No compiled plugins folder */
+plugin/
+
+plugin/packer_compiled.lua
