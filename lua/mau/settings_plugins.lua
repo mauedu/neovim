@@ -92,7 +92,7 @@ cmp.setup {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
+        ['<Esc>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = false,
@@ -153,6 +153,18 @@ require("neo-tree").setup({
     }
 })
 
-
 require('lualine').setup()
 
+-- Vimwiki
+-- vim.cmd [[
+--     let wiki_personal = {
+--     \   'path' : '~/Insync/mauri.andres@gmail.com/GDrive/Local Sync/ZettleMau/',
+--     \   'syntax' : 'markdown',
+--     \   'ext' : '.md',
+--     \}
+--
+--     let g:vimwiki_list = [wiki_personal]
+--     let g:vimwiki_markdown_link_ext = 1
+--
+--     let g:vimwiki_folding = 'expr'
+-- ]]
