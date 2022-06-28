@@ -51,6 +51,10 @@ return packer.startup(function(use)
         }
     }
     use 'folke/tokyonight.nvim'
+
+    -- TODO: Findout when this is used and consider removing if not necessary
+    use { 'stevearc/dressing.nvim' }
+
     use {
         'goolord/alpha-nvim',
         requires = { 'kyazdani42/nvim-web-devicons' },
@@ -106,6 +110,13 @@ return packer.startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
+    }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
     }
 
     -- use {
