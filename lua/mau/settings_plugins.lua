@@ -155,6 +155,14 @@ require("neo-tree").setup({
 
 require('lualine').setup()
 
+-- Enable markdown folding based on regex
+vim.cmd [[
+    let g:markdown_folding = 1
+    " When editing a markdown file, fold headings level 4 more
+    " Learned from https://bitcrowd.dev/folding-sections-of-markdown-in-vim
+    au FileType markdown setlocal foldlevel=3
+]]
+
 -- Vimwiki
 -- vim.cmd [[
 --     let wiki_personal = {

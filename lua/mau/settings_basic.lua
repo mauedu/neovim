@@ -30,3 +30,7 @@ vim.g.netrw_liststyle = 3
 -- vim.cmd('filetype plugin on')
 -- vim.cmd('syntax on')
 
+-- Always open a buffer with all folds open
+-- From https://bitcrowd.dev/folding-sections-of-markdown-in-vim
+vim.cmd "set foldlevelstart=99"
+
