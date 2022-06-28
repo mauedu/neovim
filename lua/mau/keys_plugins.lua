@@ -14,6 +14,8 @@ keymap('n', '<leader>tf', ':ToggleTerm direction=float<CR>', opts)
 keymap('t', '<leader>t', '<C-\\><C-n>:ToggleTerm<CR>', opts)
 keymap('t', '<leader><Esc>', '<C-\\><C-n>', opts)
 
+-- Lazygit
+
 -- Conigure lazygit to open in float terminal on keybinding
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
@@ -25,6 +27,7 @@ end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 -- Telescope
+--
 keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', opts)
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
