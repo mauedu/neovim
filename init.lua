@@ -19,3 +19,7 @@ require('mau/lsp_setup')
 
 -- Telekasten Trial
 -- require('mau/telekasten')
+--
+-- Mkdnflow Trial
+require('mau/mkdnflow')
+
