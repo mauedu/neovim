@@ -17,3 +17,5 @@ require('mau/keys_plugins')
 -- LSP config & kaymaps
 require('mau/lsp_setup')
 
+-- Telekasten Trial
+-- require('mau/telekasten')

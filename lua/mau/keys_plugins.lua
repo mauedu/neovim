@@ -33,3 +33,12 @@ keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
 
+
+-- Telekasten
+
+-- keymap('n', '<leader>tf', ":lua require('telekasten').find_notes()<CR>", opts)
+-- keymap('n', '<leader>td', ":lua require('telekasten').find_daily_notes()<CR>", opts)
+-- keymap('n', '<leader>tg', ":lua require('telekasten').search_notes()<CR>", opts)
+-- keymap('n', '<leader>tz', ":lua require('telekasten').follow_link()<CR>", opts)
+-- keymap('n', '<leader>tl', ":lua require('telekasten').insert_link()<CR>", opts)
+
