@@ -37,6 +37,7 @@ keymap('n', '<leader>fm', '<cmd>lua require("telescope.builtin").keymaps()<cr>',
 keymap('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics({bufnr=0})<cr>', opts)
 -- Offer the same command with df (diagnostics find)
 keymap('n', '<leader>df', '<cmd>lua require("telescope.builtin").diagnostics({bufnr=0})<cr>', opts)
+keymap('n', '<leader>fo', '<cmd>lua require("telescope.builtin").oldfiles()<cr>', opts)
 
 
 -- Telekasten
