@@ -32,6 +32,11 @@ keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
 keymap('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
+keymap('n', '<leader>fc', '<cmd>lua require("telescope.builtin").commands()<cr>', opts)
+keymap('n', '<leader>fm', '<cmd>lua require("telescope.builtin").keymaps()<cr>', opts)
+keymap('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics({bufnr=0})<cr>', opts)
+-- Offer the same command with df (diagnostics find)
+keymap('n', '<leader>df', '<cmd>lua require("telescope.builtin").diagnostics({bufnr=0})<cr>', opts)
 
 
 -- Telekasten
@@ -41,4 +46,3 @@ keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>
 -- keymap('n', '<leader>tg', ":lua require('telekasten').search_notes()<CR>", opts)
 -- keymap('n', '<leader>tz', ":lua require('telekasten').follow_link()<CR>", opts)
 -- keymap('n', '<leader>tl', ":lua require('telekasten').insert_link()<CR>", opts)
-
