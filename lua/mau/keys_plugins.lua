@@ -38,6 +38,9 @@ keymap('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics({bu
 -- Offer the same command with df (diagnostics find)
 keymap('n', '<leader>df', '<cmd>lua require("telescope.builtin").diagnostics({bufnr=0})<cr>', opts)
 keymap('n', '<leader>fo', '<cmd>lua require("telescope.builtin").oldfiles()<cr>', opts)
+-- Telescope plugins
+keymap('n', '<C-b>', ':Telescope heading<cr>', opts)
+
 
 
 -- Telekasten
@@ -47,3 +50,10 @@ keymap('n', '<leader>fo', '<cmd>lua require("telescope.builtin").oldfiles()<cr>'
 -- keymap('n', '<leader>tg', ":lua require('telekasten').search_notes()<CR>", opts)
 -- keymap('n', '<leader>tz', ":lua require('telekasten').follow_link()<CR>", opts)
 -- keymap('n', '<leader>tl', ":lua require('telekasten').insert_link()<CR>", opts)
+
+-- Mrknflow (custom)
+
+keymap('n', '<leader>wp', '<cmd>lua find_file_path()<cr>', opts)
+keymap('n', '<leader>wt', '<cmd>lua find_tags()<cr>', opts)
+
+

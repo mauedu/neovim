@@ -12,7 +12,7 @@ vim.cmd [[colorscheme tokyonight]]
 -- Treesitter
 local t_configs = require 'nvim-treesitter.configs'
 t_configs.setup {
-    ensure_installed = { "lua", "python", "bash" }, -- Starting minimalistic
+    ensure_installed = { "lua", "python", "bash", "markdown" }, -- Starting minimalistic
     -- Check installaed languages with :TSInstallInfo
     -- ensure_installed = "maintained", -- Only use parsers that are maintained
 
@@ -162,6 +162,21 @@ vim.cmd [[
     " Learned from https://bitcrowd.dev/folding-sections-of-markdown-in-vim
     au FileType markdown setlocal foldlevel=3
 ]]
+
+-- From https://github.com/crispgm/telescope-heading.nvim
+
+-- enable treesitter parsing
+local telescope = require('telescope')
+telescope.setup({
+    -- ...
+    extensions = {
+        heading = {
+            treesitter = true,
+        },
+    },
+})
+-- `load_extension` must be after `telescope.setup`
+telescope.load_extension('heading')
 
 -- Vimwiki
 -- vim.cmd [[
