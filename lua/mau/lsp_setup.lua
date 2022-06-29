@@ -18,6 +18,14 @@ local default_servers = {
     "emmet_ls",
 }
 
+-- Define new sybols for diagnostics.
+-- From https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 local on_attach = function(client, bufnr)
     -- Disabled since using Autocompletion with nvim-cmp
     -- Enable completion triggered by <c-x><c-o>
